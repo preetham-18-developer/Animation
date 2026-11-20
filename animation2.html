@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Raise Labs</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap">
+<style>
+:root{--bg:#faf9f7;--fg:#000;--muted:#5c5c5c;--line:#e2e0db;--pill:#f1efea;--ease:cubic-bezier(.32,.72,0,1);box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0d0d;--fg:#fff;--muted:#a3a3a3;--line:#2a2a2a;--pill:#1a1a1a}}
+:root[data-theme="dark"]{--bg:#0d0d0d;--fg:#fff;--muted:#a3a3a3;--line:#2a2a2a;--pill:#1a1a1a}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Lexend",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+
+/* Header: fixed height, so nothing reflows while the logo animates. Only transforms move. */
+header{position:fixed;inset:0 0 auto 0;z-index:20;height:calc(64px + env(safe-area-inset-top,0px));
+  padding:env(safe-area-inset-top,0px) max(20px,5vw) 0;background:var(--bg);
+  box-shadow:0 1px 0 transparent;transition:box-shadow .5s var(--ease)}
+header.docked{box-shadow:0 1px 0 var(--line)}
+.side{position:absolute;top:calc(15px + env(safe-area-inset-top,0px));display:flex;gap:10px}
+.side.left{left:max(20px,5vw)}
+.side.right{right:max(20px,5vw)}
+.pill{display:inline-flex;align-items:center;height:34px;padding:0 16px;border:1px solid var(--line);background:var(--pill);border-radius:999px;color:var(--fg);text-decoration:none;font-size:.9rem;white-space:nowrap}
+.pill:hover{border-color:var(--fg)}
+a:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+
+/* Logo: mark is 76px wide, scales to 44px (scale .579). Text sits under it and slides up behind it. */
+.logo{position:absolute;left:50%;top:calc(12px + env(safe-area-inset-top,0px));width:76px;margin-left:-38px;color:var(--fg);text-decoration:none;display:block}
+.logo svg{display:block;width:76px;height:auto;transform-origin:50% 0;transition:transform 1.578s var(--ease);will-change:transform}
+.scrolled .logo svg{transform:translateY(8.5px) scale(.579)}
+.logo .m{fill:var(--fg);animation:riseIn .9s cubic-bezier(.2,.7,.2,1) both}
+.logo .wd{animation:fadeIn .8s .55s ease both}
+@keyframes riseIn{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.logo .w{position:absolute;left:50%;top:40px;transform:translateX(-50%);overflow:hidden;font-size:9.5px;font-weight:500;letter-spacing:.05em;white-space:nowrap;pointer-events:none}
+.logo .w span{display:block;padding-top:8px;transition:transform 1.578s var(--ease);will-change:transform}
+.scrolled .logo .w span{transform:translateY(-100%)}
+@media (prefers-reduced-motion:reduce){.logo .m,.logo .wd{animation:none}.logo svg,.logo .w span{transition-duration:.01s}}
+
+.hero{padding:calc(165px + env(safe-area-inset-top,0px)) max(20px,5vw) 14vh;max-width:1100px}
+.hero h1{margin:0;font-weight:500;font-size:clamp(2rem,5.2vw,3.7rem);line-height:1.12;letter-spacing:-.01em}
+.hero h1 span{font-weight:400;color:var(--muted)}
+main section{max-width:1100px;padding:10vh max(20px,5vw);border-top:1px solid var(--line)}
+main h2{font-weight:500;font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.2;margin:0 0 16px;max-width:22ch}
+main p{color:var(--muted);font-size:1.1rem;margin:0;max-width:56ch}
+footer{padding:10vh max(20px,5vw) 8vh;color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.side.left .pill:not(:first-child){display:none}.side.right .pill{padding:0 12px;font-size:.8rem}}
+</style>
+</head>
+<body>
+<header id="top">
+  <nav class="side left" aria-label="Main">
+    <a class="pill" href="#how">How it works</a>
+    <a class="pill" href="#plans">Plans</a>
+    <a class="pill" href="#journal">Journal</a>
+  </nav>
+  <a class="logo" href="#top" aria-label="The Raise Labs, home">
+    <svg viewBox="80 165 770 405" aria-hidden="true">
+      <defs>
+        <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="600" y1="0" x2="832" y2="0">
+          <stop offset="0" style="stop-color:var(--bg)"/>
+          <stop offset="1" style="stop-color:var(--fg)"/>
+        </linearGradient>
+      </defs>
+      <path class="m" d="M455 175 L778 175 L440 540 Q425 558 400 558 L115 558 Q85 555 100 520 L375 205 Q410 175 455 175 Z"/>
+      <path class="wd" d="M600 395 L782 185 Q800 170 820 182 Q832 190 832 210 L832 535 Q832 558 805 555 Q795 553 785 543 Z" fill="url(#g)"/>
+    </svg>
+    <span class="w"><span>THE RAISE LABS</span></span>
+  </a>
+  <div class="side right">
+    <a class="pill" href="#check">Check your brand free</a>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Be found. Be named. Be recommended. <span>The Raise Labs shows you what AI says about your business today, and what to change first.</span></h1>
+</div>
+<main>
+  <section id="how">
+    <h2>We ask, we read, we tell you what to do</h2>
+    <p>We put the questions your customers ask to the major AI tools, read the answers, and give you a short list of next steps in plain words.</p>
+  </section>
+  <section id="plans">
+    <h2>Your customers now ask a different question</h2>
+    <p>More and more people ask an AI before they search. Google and AI answers need different work, and we cover both in one place.</p>
+  </section>
+  <section id="check">
+    <h2>Start with a free check</h2>
+    <p>Enter your website and see how AI describes you. No signup, about a minute.</p>
+  </section>
+  <section id="journal">
+    <h2>Journal</h2>
+    <p>Notes from the team on what we are learning about AI search. Coming soon.</p>
+  </section>
+</main>
+<footer>The Raise Labs · demo page</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, header=document.getElementById('top'), ticking=false;
+  function update(){
+    ticking=false;
+    var y=window.scrollY||0, on=root.classList.contains('scrolled');
+    if(!on&&y>16){root.classList.add('scrolled');header.classList.add('docked')}
+    else if(on&&y<4){root.classList.remove('scrolled');header.classList.remove('docked')}
+  }
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
+  window.addEventListener('scroll',req,{passive:true});
+  update();
+})();
+</script>
+</body>
+</html>

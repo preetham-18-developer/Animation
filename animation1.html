@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Raise Labs</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap">
+<style>
+:root{--bg:#faf9f7;--fg:#000;--muted:#5c5c5c;--line:#e2e0db;--pill:#f1efea;--p:0;--e:0;box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0d0d;--fg:#fff;--muted:#a3a3a3;--line:#2a2a2a;--pill:#1a1a1a}}
+:root[data-theme="dark"]{--bg:#0d0d0d;--fg:#fff;--muted:#a3a3a3;--line:#2a2a2a;--pill:#1a1a1a}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Lexend",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+header{position:fixed;inset:0 0 auto 0;z-index:20;background:var(--bg);
+  height:calc(100px - 36px * var(--e) + env(safe-area-inset-top,0px));
+  padding:env(safe-area-inset-top,0px) max(20px,5vw) 0;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:start}
+header.docked{box-shadow:0 1px 0 var(--line)}
+.side{display:flex;gap:10px;margin-top:calc(21px - 6px * var(--e))}
+.side.right{justify-content:flex-end}
+.pill{display:inline-flex;align-items:center;height:34px;padding:0 16px;border:1px solid var(--line);background:var(--pill);border-radius:999px;color:var(--fg);text-decoration:none;font-size:.9rem;white-space:nowrap}
+.pill:hover{border-color:var(--fg)}
+a:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.logo{position:relative;display:block;margin-top:calc(18px + 2.5px * var(--e));color:var(--fg);text-decoration:none}
+.logo svg{display:block;width:calc(76px - 32px * var(--e));height:auto;margin:0 auto}
+.logo .m{fill:var(--fg);animation:riseIn .9s cubic-bezier(.2,.7,.2,1) both}
+.logo .wd{animation:fadeIn .8s .55s ease both}
+@keyframes riseIn{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.logo .m,.logo .wd{animation:none}}
+.logo .w{position:absolute;left:50%;top:100%;margin-top:8px;font-size:9.5px;font-weight:500;letter-spacing:.05em;white-space:nowrap;
+  opacity:calc(1 - var(--p) * 2.2);transform:translateX(-50%) translateY(calc(var(--e) * 22px));pointer-events:none}
+.hero{padding:calc(165px + env(safe-area-inset-top,0px)) max(20px,5vw) 14vh;max-width:1100px}
+.hero h1{margin:0;font-weight:500;font-size:clamp(2rem,5.2vw,3.7rem);line-height:1.12;letter-spacing:-.01em}
+.hero h1 span{font-weight:400;color:var(--muted)}
+main section{max-width:1100px;padding:10vh max(20px,5vw);border-top:1px solid var(--line)}
+main h2{font-weight:500;font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.2;margin:0 0 16px;max-width:22ch}
+main p{color:var(--muted);font-size:1.1rem;margin:0;max-width:56ch}
+footer{padding:10vh max(20px,5vw) 8vh;color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.side.left .pill:not(:first-child){display:none}.side.right .pill{padding:0 12px;font-size:.8rem}}
+</style>
+</head>
+<body>
+<header id="top">
+  <nav class="side left" aria-label="Main">
+    <a class="pill" href="#how">How it works</a>
+    <a class="pill" href="#plans">Plans</a>
+    <a class="pill" href="#journal">Journal</a>
+  </nav>
+  <a class="logo" href="#top" aria-label="The Raise Labs, home">
+    <svg viewBox="80 165 770 405" aria-hidden="true">
+      <defs>
+        <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="600" y1="0" x2="832" y2="0">
+          <stop offset="0" style="stop-color:var(--bg)"/>
+          <stop offset="1" style="stop-color:var(--fg)"/>
+        </linearGradient>
+      </defs>
+      <path class="m" d="M455 175 L778 175 L440 540 Q425 558 400 558 L115 558 Q85 555 100 520 L375 205 Q410 175 455 175 Z"/>
+      <path class="wd" d="M600 395 L782 185 Q800 170 820 182 Q832 190 832 210 L832 535 Q832 558 805 555 Q795 553 785 543 Z" fill="url(#g)"/>
+    </svg>
+    <span class="w">THE RAISE LABS</span>
+  </a>
+  <div class="side right">
+    <a class="pill" href="#check">Check your brand free</a>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Be found. Be named. Be recommended. <span>The Raise Labs shows you what AI says about your business today, and what to change first.</span></h1>
+</div>
+<main>
+  <section id="how">
+    <h2>We ask, we read, we tell you what to do</h2>
+    <p>We put the questions your customers ask to the major AI tools, read the answers, and give you a short list of next steps in plain words.</p>
+  </section>
+  <section id="plans">
+    <h2>Your customers now ask a different question</h2>
+    <p>More and more people ask an AI before they search. Google and AI answers need different work, and we cover both in one place.</p>
+  </section>
+  <section id="check">
+    <h2>Start with a free check</h2>
+    <p>Enter your website and see how AI describes you. No signup, about a minute.</p>
+  </section>
+  <section id="journal">
+    <h2>Journal</h2>
+    <p>Notes from the team on what we are learning about AI search. Coming soon.</p>
+  </section>
+</main>
+<footer>The Raise Labs · demo page</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, header=document.getElementById('top'), ticking=false;
+  function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+  function update(){
+    ticking=false;
+    var p=Math.min(1,Math.max(0,(window.scrollY||0)/110));
+    root.style.setProperty('--p',p);
+    root.style.setProperty('--e',ease(p));
+    header.classList.toggle('docked',p>=1);
+  }
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
+  window.addEventListener('scroll',req,{passive:true});
+  update();
+})();
+</script>
+</body>
+</html>

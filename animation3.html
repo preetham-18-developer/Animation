@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Raise Labs</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&family=Outfit:wght@600&display=swap">
+<style>
+:root{
+  --bg:#faf9f7;--fg:#000;--muted:#5c5c5c;--line:#e2e0db;--pill:#f1efea;
+  --ease:cubic-bezier(.32,.72,0,1);--dur:1.578s;
+  /* Brand font. Swap "Outfit" for "Chillax" once Chillax is loaded on the real site. */
+  --brand-font:"Outfit","Lexend",system-ui,sans-serif;
+  box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0d0d;--fg:#fff;--muted:#a3a3a3;--line:#2a2a2a;--pill:#1a1a1a}}
+:root[data-theme="dark"]{--bg:#0d0d0d;--fg:#fff;--muted:#a3a3a3;--line:#2a2a2a;--pill:#1a1a1a}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(84px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Lexend",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+
+header{position:fixed;inset:0 0 auto 0;z-index:20;height:calc(72px + env(safe-area-inset-top,0px));
+  padding:env(safe-area-inset-top,0px) max(20px,5vw) 0;background:var(--bg);
+  box-shadow:0 1px 0 transparent;transition:box-shadow .6s var(--ease)}
+header.docked{box-shadow:0 1px 0 var(--line)}
+.side{position:absolute;top:calc(19px + env(safe-area-inset-top,0px));display:flex;gap:10px}
+.side.left{left:max(20px,5vw)}
+.side.right{right:max(20px,5vw)}
+.pill{display:inline-flex;align-items:center;height:34px;padding:0 16px;border:1px solid var(--line);background:var(--pill);border-radius:999px;color:var(--fg);text-decoration:none;font-size:.9rem;white-space:nowrap}
+.pill:hover{border-color:var(--fg)}
+a:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+
+/* Wordmark: THE RAISE LABS. On scroll the grey pieces fold away and only R and L stay, with a gap between them. */
+.logo{position:absolute;left:50%;top:calc(36px + env(safe-area-inset-top,0px));transform:translate(-50%,-50%);
+  display:flex;align-items:center;color:var(--fg);text-decoration:none;
+  font-family:var(--brand-font);font-weight:600;font-size:22px;line-height:1;letter-spacing:.08em;white-space:nowrap;contain:layout}
+.c{display:inline-grid;grid-template-columns:1fr;transition:grid-template-columns var(--dur) var(--ease)}
+.c>span{min-width:0;overflow:hidden;white-space:nowrap;transition:opacity .7s ease}
+.scrolled .c{grid-template-columns:0fr}
+.scrolled .c>span{opacity:0;transition-duration:.5s}
+.k2{transition:margin-left var(--dur) var(--ease)}
+.scrolled .k2{margin-left:.1em}
+@media (prefers-reduced-motion:reduce){.c,.c>span,.k2{transition-duration:.01s}}
+
+.hero{padding:calc(150px + env(safe-area-inset-top,0px)) max(20px,5vw) 14vh;max-width:1100px}
+.hero h1{margin:0;font-weight:500;font-size:clamp(2rem,5.2vw,3.7rem);line-height:1.12;letter-spacing:-.01em}
+.hero h1 span{font-weight:400;color:var(--muted)}
+main section{max-width:1100px;padding:10vh max(20px,5vw);border-top:1px solid var(--line)}
+main h2{font-weight:500;font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.2;margin:0 0 16px;max-width:22ch}
+main p{color:var(--muted);font-size:1.1rem;margin:0;max-width:56ch}
+footer{padding:10vh max(20px,5vw) 8vh;color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.side.left .pill:not(:first-child){display:none}.side.right .pill{padding:0 12px;font-size:.8rem}.logo{font-size:18px}}
+</style>
+</head>
+<body>
+<header id="top">
+  <nav class="side left" aria-label="Main">
+    <a class="pill" href="#how">How it works</a>
+    <a class="pill" href="#plans">Plans</a>
+    <a class="pill" href="#journal">Journal</a>
+  </nav>
+  <a class="logo" href="#top" aria-label="The Raise Labs, home"><span class="c"><span>THE&nbsp;</span></span><span>R</span><span class="c"><span>AISE&nbsp;</span></span><span class="k2">L</span><span class="c"><span>ABS</span></span></a>
+  <div class="side right">
+    <a class="pill" href="#check">Check your brand free</a>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Be found. Be named. Be recommended. <span>The Raise Labs shows you what AI says about your business today, and what to change first.</span></h1>
+</div>
+<main>
+  <section id="how">
+    <h2>We ask, we read, we tell you what to do</h2>
+    <p>We put the questions your customers ask to the major AI tools, read the answers, and give you a short list of next steps in plain words.</p>
+  </section>
+  <section id="plans">
+    <h2>Your customers now ask a different question</h2>
+    <p>More and more people ask an AI before they search. Google and AI answers need different work, and we cover both in one place.</p>
+  </section>
+  <section id="check">
+    <h2>Start with a free check</h2>
+    <p>Enter your website and see how AI describes you. No signup, about a minute.</p>
+  </section>
+  <section id="journal">
+    <h2>Journal</h2>
+    <p>Notes from the team on what we are learning about AI search. Coming soon.</p>
+  </section>
+</main>
+<footer>The Raise Labs · demo page</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, header=document.getElementById('top'), ticking=false;
+  function update(){
+    ticking=false;
+    var y=window.scrollY||0, on=root.classList.contains('scrolled');
+    if(!on&&y>16){root.classList.add('scrolled');header.classList.add('docked')}
+    else if(on&&y<4){root.classList.remove('scrolled');header.classList.remove('docked')}
+  }
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
+  window.addEventListener('scroll',req,{passive:true});
+  update();
+})();
+</script>
+</body>
+</html>
