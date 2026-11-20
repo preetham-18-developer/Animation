@@ -46,10 +46,10 @@ a:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
 @keyframes openBook{from{--s:0}to{--s:1}}
 
 /* 2. The lettering. After the book opens, THE RAISE LABS appears. On scroll only R and L stay. */
-.word{position:absolute;left:50%;top:36px;display:flex;align-items:center;width:max-content;white-space:nowrap;
-  transform:translate(-50%,calc(-50% + var(--off)));transition:transform var(--dur) var(--ease);
+.word{position:absolute;left:0;right:0;top:36px;display:flex;justify-content:center;align-items:center;white-space:nowrap;
+  transform:translateY(calc(-50% + var(--off)));transition:transform var(--dur) var(--ease);
   animation:wordIn 1s 2.3s ease backwards}
-.scrolled .word{transform:translate(-50%,-50%)}
+.scrolled .word{transform:translateY(-50%)}
 @keyframes wordIn{from{opacity:0}to{opacity:1}}
 .g{display:block;height:var(--th);background:var(--fg);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100% 100%;mask-size:100% 100%}
 .g.r,.k2{margin-left:calc(var(--th) * .2)}
